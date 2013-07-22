@@ -36,6 +36,8 @@ Code: https://github.com/springinpractice
 	<!-- Data source -->
 	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/Sip07DS" resource-ref="true"/>
 	
+		<bean class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="dataSource" />
+	
 	<!-- ORM -->
 	<util:properties id="hibernateProperties">
 		<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>

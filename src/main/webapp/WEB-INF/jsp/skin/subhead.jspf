@@ -23,6 +23,16 @@
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="${adminUrl}">Admin</a></li>
 				</security:authorize>
+				
+				
+				
+				<security:authorize access="isAuthenticated()">
+					<c:url var="myRegistrationUrl" value="events/new.html" />
+					<li><a href="${myRegistrationUrl}">My Registration</a></li>
+				</security:authorize>
+				
+				
+				
 			</ul>
 		</div>
 	</div>

@@ -55,6 +55,18 @@ Code: https://github.com/springinpractice
 		<!-- Get individual message -->
 		<intercept-url pattern="/forums/*/messages/*" method="GET" access="isAuthenticated()" />
 		
+		
+		
+		<!-- Post new message -->
+		<intercept-url pattern="/events/*" method="POST" access="isAuthenticated()" />
+		<intercept-url pattern="/events.html" method="POST" access="isAuthenticated()" />	
+		
+		<!-- Get individual message -->
+		<intercept-url pattern="/events/*" method="GET" access="isAuthenticated()" />
+		
+		
+		
+		
 		<!-- Various message operations. Just block unauthenticated users, and we'll rely on ACLs to authorize specific
 		     requests. -->
 		<intercept-url pattern="/forums/*/messages/*/edit.html" method="GET" access="isAuthenticated()" />
