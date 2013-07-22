@@ -45,8 +45,8 @@ ol.myList li {
 				</div>
 				<div class="yui-u">
 					<div>
-						<form:input path="username" cssClass="short"
-							cssErrorClass="short error" />
+						<form:input path="username" cssClass="short" title="${myAccount.username}"  cssErrorClass="short error" />
+							
 					</div>
 					<form:errors path="username">
 						<div class="errorMessage">
