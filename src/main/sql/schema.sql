@@ -1,11 +1,88 @@
-drop database if exists sip07;
-create database sip07;
-use sip07;
+drop database if exists Accounts;
+create database Accounts;
+use Accounts;
 
 
 -- =====================================================================================================================
 -- Domain tables
 -- =====================================================================================================================
+drop table if exists account;
+drop table if exists registration;
+drop table if exists event;
+drop table if exists role;
+drop table if exists permission;
+drop table if exists account_role;
+drop table if exists role_permission;
+drop table if exists forum;
+drop table if exists message;
+drop table if exists acl_sid;
+drop table if exists acl_class;
+drop table if exists acl_object_identity;
+drop table if exists acl_entry;
+
+
+create table registration (
+    id int unsigned not null auto_increment primary key,
+    username varchar(50) unique not null,
+    first_name varchar(50) not null,
+    familiar_name varchar(50) not null,
+    last_name varchar(50) not null,
+    email varchar(50) not null,
+    city varchar(50) not null,
+    contact_phone varchar(50) not null,
+    contact_name varchar(50) not null,
+    travel_arranger varchar(50),
+    company varchar(50),
+    ada varchar(300),
+    activities varchar(300),
+    incidentals varchar(75) not null,
+    breakout1 varchar(100),
+    breakout2 varchar(100),
+    breakout3 varchar(100),
+    breakout4 varchar(100),
+    breakout5 varchar(100),
+    breakout6 varchar(100),
+    breakout7 varchar(100),
+    breakout8 varchar(100),
+    breakout9 varchar(100),
+    breakout10 varchar(100),
+    diet varchar(250),
+    allergies varchar(250),
+    room_requirements varchar(250),
+    room_comments varchar(500),
+    hotel_arrive  varchar(50)  NOT NULL,
+    hotel_departure  varchar(50)  NOT NULL,
+    airport_arrive  varchar(50)  NOT NULL,
+    airport_departure  varchar(50)  NOT NULL,
+    airport_arrive_time  varchar(50),
+    airport_departure_time  varchar(50), 
+    flight_number_arrive varchar(50), 
+    flight_number_departure varchar(50),
+    travel_comments varchar(500),
+    oday varchar(100),
+    first_time_breakfast varchar(50),
+    date_created timestamp default 0,
+    date_modified timestamp default current_timestamp on update current_timestamp,
+    unique index registration_idx_1 (username),
+    unique index registration_idx_2 (email)
+) engine = InnoDb;
+
+
+
+
+
+create table event (
+    id int unsigned not null auto_increment primary key,
+    chair_name varchar(250),
+    email varchar(50),
+    session_title varchar(100),
+    session_desc varchar(100),
+    session_type varchar(50),
+    session_slot varchar(50),
+    date_created timestamp default 0,
+    date_modified timestamp default current_timestamp on update current_timestamp,
+    unique index event_idx_1 (id)
+) engine = InnoDb;
 
 create table account (
     id int unsigned not null auto_increment primary key,

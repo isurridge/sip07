@@ -7,9 +7,9 @@
 		<Arg>
 			<New class="org.apache.commons.dbcp.BasicDataSource">
 				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
-				<Set name="url">jdbc:mysql://localhost:3306/sip07?autoReconnect=true</Set>
-				<Set name="username">sip</Set>
-				<Set name="password">sip</Set>
+				<Set name="url">jdbc:mysql://localhost:3306/Accounts?autoReconnect=true</Set>
+				<Set name="username">root</Set>
+				<Set name="password">root</Set>
 			</New>
 		</Arg>
 	</New>
