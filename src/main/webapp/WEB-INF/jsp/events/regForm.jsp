@@ -41,7 +41,7 @@ ol.myList li {
 
 
 
-<security:authentication var="myAccount2" property="principal" />
+		<security:authentication var="myAccount2" property="principal" />
 
 
 		<div class="panel grid">

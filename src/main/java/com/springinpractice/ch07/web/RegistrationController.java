@@ -81,8 +81,7 @@ public class RegistrationController {
         map.putAll(loadRadioButtons());
   
         model.addAttribute("model", map );       
-        //model.addAllAttributes(map);
-        
+              
         model.addAttribute("registration", new RegistrationForm() );
     
         Object[] arr = model.asMap().values().toArray();
@@ -104,13 +103,20 @@ public class RegistrationController {
 	
 	
 	
-	@RequestMapping(value = "/events/{username}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{username}", method = RequestMethod.GET)
 	public String getRegistration(@PathVariable("username") String username, Model model) {
+
+		Map<String, List<String>> map = new HashMap<String, List<String>>();
+        map.putAll(loadRadioButtons());
+  
+        model.addAttribute("model", map );       
+  
 		Registration registration = registrationService.getRegistrationByUsername(username);
 		model.addAttribute(registration);
-	//	return "events/event";
+	
+		log.debug("My username is: " + registration.getUsername());
 		
-		return "/" + VN_REG_FORM + "/" + username;
+		return  VN_REG_FORM;
 	}
 	
 	
