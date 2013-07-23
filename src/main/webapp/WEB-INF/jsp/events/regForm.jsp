@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <c:url var="submitRegistrationUrl" value="/events.html" />
 
@@ -38,23 +39,32 @@ ol.myList li {
 			<spring:message code="newUserRegistration.message.allFieldsRequired" />
 		</p>
 
+
+
+<security:authentication var="myAccount2" property="principal" />
+
+
 		<div class="panel grid">
 			<div class="gridRow yui-gf">
 				<div class="fieldLabel yui-u first">
-					<spring:message code="newUserRegistration.label.username" />
+					
 				</div>
 				<div class="yui-u">
+				
 					<div>
-						<form:input path="username" cssClass="short" title="${myAccount.username}"  cssErrorClass="short error" />
+					
+						<form:input path="username" value="${myAccount2.username}"  />
 							
 					</div>
-					<form:errors path="username">
-						<div class="errorMessage">
-							<form:errors path="username" htmlEscape="false" />
-						</div>
-					</form:errors>
+			
 				</div>
 			</div>
+			
+			
+			
+			
+			
+			
 
 			<div class="gridRow yui-gf">
 				<div class="fieldLabel yui-u first">

@@ -9,6 +9,7 @@ package com.springinpractice.ch07.web;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -30,9 +31,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.springinpractice.ch07.domain.Account;
 import com.springinpractice.ch07.domain.Registration;
 import com.springinpractice.ch07.service.RegistrationService;
 
@@ -74,16 +77,17 @@ public class RegistrationController {
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String getRegistrationForm(Model model) {
 		
-
 		Map<String, List<String>> map = new HashMap<String, List<String>>();
         map.putAll(loadRadioButtons());
+  
         model.addAttribute("model", map );       
         //model.addAllAttributes(map);
-        model.addAttribute("registration", new RegistrationForm() );
-      
-        Object[] arr = model.asMap().values().toArray();
-        for(int i = 0; i < arr.length; i++){
         
+        model.addAttribute("registration", new RegistrationForm() );
+    
+        Object[] arr = model.asMap().values().toArray();
+        
+        for(int i = 0; i < arr.length; i++){        
         log.debug("Attributes Get: " + arr[i].toString() );
         
         }
@@ -91,8 +95,29 @@ public class RegistrationController {
 		return VN_REG_FORM;
 
    
-
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/events/{username}", method = RequestMethod.GET)
+	public String getRegistration(@PathVariable("username") String username, Model model) {
+		Registration registration = registrationService.getRegistrationByUsername(username);
+		model.addAttribute(registration);
+	//	return "events/event";
+		
+		return "/" + VN_REG_FORM + "/" + username;
+	}
+	
+	
+	
+	
+	
+	
 	
 
 
@@ -103,8 +128,7 @@ public class RegistrationController {
 			Map<Object, Object> map = new HashMap<Object, Object>();
 	        map.putAll(loadRadioButtons());
 	        model.addAttribute("model", map );       
-	        //model.addAllAttributes(map);
-		
+	       
 	        log.debug("Attributes Post Form: " + form.toString());
 			
 		registrationService.addRegistration(toRegistration(form), result);

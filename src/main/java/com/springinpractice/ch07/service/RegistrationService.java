@@ -25,4 +25,7 @@ public interface RegistrationService {
 	List<String> loadActivities();
 	
 	List<String> loadRoomRequirements();
+	Registration getRegistration(long id);
+	Registration getRegistrationByUsername(String username);
+	
 }
