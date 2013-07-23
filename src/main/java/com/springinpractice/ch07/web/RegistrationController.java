@@ -106,17 +106,20 @@ public class RegistrationController {
 	@RequestMapping(value = "/{username}", method = RequestMethod.GET)
 	public String getRegistration(@PathVariable("username") String username, Model model) {
 
-		Map<String, List<String>> map = new HashMap<String, List<String>>();
-        map.putAll(loadRadioButtons());
-  
-        model.addAttribute("model", map );       
+      
   
 		Registration registration = registrationService.getRegistrationByUsername(username);
-		model.addAttribute(registration);
-	
-		log.debug("My username is: " + registration.getUsername());
 		
-		return  VN_REG_FORM;
+		if(!registration.equals(null)){
+			model.addAttribute(registration);
+			Map<String, List<String>> map = new HashMap<String, List<String>>();
+	        map.putAll(loadRadioButtons());  
+	        model.addAttribute("model", map ); 
+			log.debug("My username is: " + registration.getUsername());
+			return  VN_REG_FORM;
+		}
+		return  "/new";
+		
 	}
 	
 	
