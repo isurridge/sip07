@@ -46,6 +46,7 @@ import com.springinpractice.ch07.service.RegistrationService;
 @RequestMapping("/events")
 public class RegistrationController {
 	private static final String VN_REG_FORM = "events/regForm";
+	private static final String VN_EDIT_REG_FORM = "events/editRegForm";
 	private static final String VN_REG_OK = "redirect:events/reg_ok.html";
 	private static final Logger log = LoggerFactory
 			.getLogger(RegistrationController.class);
@@ -116,7 +117,7 @@ public class RegistrationController {
 	        map.putAll(loadRadioButtons());  
 	        model.addAttribute("model", map ); 
 			log.debug("My username is: " + registration.getUsername());
-			return  VN_REG_FORM;
+			return  VN_EDIT_REG_FORM;
 		}
 		return  "/new";
 		
@@ -124,7 +125,19 @@ public class RegistrationController {
 	
 	
 	
-	
+	@RequestMapping(value = "/{username}", method = RequestMethod.PUT)
+	public String updateRegistrationForm(
+			@ModelAttribute("registration") @Valid RegistrationForm form, BindingResult result, Model model) {
+			
+			Map<Object, Object> map = new HashMap<Object, Object>();
+	        map.putAll(loadRadioButtons());
+	        model.addAttribute("model", map );       
+	       
+	        log.debug("Attributes Put Form: " + form.toString());
+			
+		registrationService.updateRegistration(toRegistration(form), result);
+		return (result.hasErrors() ? VN_EDIT_REG_FORM : VN_REG_OK);
+	}
 	
 	
 	

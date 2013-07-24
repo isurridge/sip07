@@ -97,12 +97,12 @@ public class Registration {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
+/*
 	@Transient
 	public String getFullName() {
 		return firstName + " " + lastName;
 	}
-
+*/
 	@NotNull
 	@Size(min = 6, max = 50)
 	@Email

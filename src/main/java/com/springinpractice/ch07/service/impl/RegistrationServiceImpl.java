@@ -90,6 +90,19 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 	@Override
 	@Transactional(readOnly = false)
+	public boolean updateRegistration(Registration registration, Errors errors) {
+
+		boolean valid = !errors.hasErrors();
+
+		if (valid) {
+			registrationDao.update(registration);
+		}
+
+		return valid;
+	}
+
+	@Override
+	@Transactional(readOnly = false)
 	public List loadIncidentals() {
 
 		List<String> incidentals = new ArrayList();

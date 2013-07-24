@@ -27,5 +27,6 @@ public interface RegistrationService {
 	List<String> loadRoomRequirements();
 	Registration getRegistration(long id);
 	Registration getRegistrationByUsername(String username);
+	boolean updateRegistration(Registration registration, Errors errors);
 	
 }

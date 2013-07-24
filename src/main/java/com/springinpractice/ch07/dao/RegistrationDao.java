@@ -16,6 +16,6 @@ import com.springinpractice.dao.Dao;
 public interface RegistrationDao extends Dao<Registration> {
 	
 	void create(Registration registration);
-	
+	void update(Registration registration);
 	Registration findByUsername(String username);
 }

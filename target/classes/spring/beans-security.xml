@@ -57,11 +57,12 @@ Code: https://github.com/springinpractice
 		
 		
 		
+		
 
 		<intercept-url pattern="/events/*" method="POST" access="isAuthenticated()" />     
 		<intercept-url pattern="/events.html" method="POST" access="isAuthenticated()" />  
 	  	<intercept-url pattern="/events/*" method="GET" access="isAuthenticated()" />  
-	  	
+	  	<intercept-url pattern="/events/*" method="PUT" access="isAuthenticated()" /> 
 
 				
 		

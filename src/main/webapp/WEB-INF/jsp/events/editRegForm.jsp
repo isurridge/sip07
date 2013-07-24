@@ -10,7 +10,7 @@
 
 
 
-<c:url var="submitRegistrationUrl" value="/events.html" />
+<c:url var="submitRegistrationUrl" value="/events/${myAccount2.username}.html" />
 
 <spring:message var="pageTitle" code="newUserRegistration.pageTitle" />
 <spring:message var="msgAllFieldsRequired"
@@ -31,8 +31,8 @@ ol.myList li {
 		<c:out value="${pageTitle}" />
 	</h1>
 
-	<form:form cssClass="main" action="${submitRegistrationUrl}"
-		modelAttribute="registration">
+	<form:form cssClass="main" action="${submitRegistrationUrl}" modelAttribute="registration">
+	<input type="hidden" name="_method" value="PUT" />
 		<form:errors path="*">
 			<div class="warning alert">
 				<spring:message code="error.global" />
