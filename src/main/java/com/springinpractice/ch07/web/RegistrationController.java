@@ -135,7 +135,7 @@ public class RegistrationController {
 	       
 	        log.debug("Attributes Put Form: " + form.toString());
 			
-		registrationService.updateRegistration(toRegistration(form), result);
+		registrationService.updateRegistration(toEditRegistration(form), result);
 		return (result.hasErrors() ? VN_EDIT_REG_FORM : VN_REG_OK);
 	}
 	
@@ -249,4 +249,61 @@ public class RegistrationController {
 		registration.setFirstTimeBreakfast(form.getFirstTimeBreakfast());
 		return registration;
 	}
+	
+	
+	private Registration toEditRegistration(RegistrationForm form) {
+		
+		Registration registration = registrationService.getRegistrationByUsername(form.getUsername());
+		registration.setUsername(form.getUsername());
+		registration.setFirstName(form.getFirstName());
+		registration.setFamiliarName(form.getFamiliarName());
+		registration.setLastName(form.getLastName());
+		registration.setEmail(form.getEmail());
+		registration.setCity(form.getCity());
+		registration.setCompany(form.getCompany());
+		registration.setTravelArranger(form.getTravelArranger());
+		registration.setAda(form.getAda());
+		registration.setIncidentals(form.getIncidentals());
+		registration.setContactName(form.getContactName());
+		registration.setContactPhone(form.getContactPhone());
+		registration.setBreakout1(form.getBreakout1());
+		registration.setBreakout2(form.getBreakout2());
+		registration.setBreakout3(form.getBreakout3());
+		registration.setBreakout4(form.getBreakout4());
+		registration.setBreakout5(form.getBreakout5());
+		registration.setBreakout6(form.getBreakout6());
+		registration.setBreakout7(form.getBreakout7());
+		registration.setBreakout8(form.getBreakout8());
+		registration.setBreakout9(form.getBreakout9());
+		registration.setBreakout10(form.getBreakout10());  
+		
+		registration.setHotelArrive(form.getHotelArrive());
+		registration.setHotelDeparture(form.getHotelDeparture());
+		registration.setAirportArrive(form.getAirportArrive());
+		registration.setAirportDeparture(form.getAirportDeparture());
+		
+		
+		
+		registration.setAirportArriveTime(form.getAirportArriveTime());
+		registration.setAirportDepartureTime(form.getAirportDepartureTime());
+		
+		registration.setFlightNumberArrive(form.getFlightNumberArrive());
+		registration.setFlightNumberDeparture(form.getFlightNumberDeparture());
+		
+		registration.setDiet(form.getDiet());
+		registration.setAllergies(form.getAllergies());
+		registration.setActivities(form.getActivities());
+		
+		registration.setRoomRequirements(form.getRoomRequirements());
+		registration.setRoomComments(form.getRoomComments());
+		registration.setTravelComments(form.getTravelComments());
+		registration.setOday(form.getOday());		
+		registration.setFirstTimeBreakfast(form.getFirstTimeBreakfast());
+		return registration;
+	}
+	
+	
+	
+	
+	
 }
