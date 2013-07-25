@@ -40,7 +40,7 @@ Code: https://github.com/springinpractice
 		<!-- Get home page -->
 		<!-- This requires filtering for the controller test and taglib -->
 		<intercept-url pattern="/home.html" method="GET" access="permitAll" />
-		<intercept-url pattern="events/regOK.html" method="GET" access="permitAll" />
+		<intercept-url pattern="/events/reg_ok.html" method="GET" access="permitAll" />
 		
 		
 		
