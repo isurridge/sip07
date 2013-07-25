@@ -47,6 +47,7 @@ import com.springinpractice.ch07.service.RegistrationService;
 public class RegistrationController {
 	private static final String VN_REG_FORM = "events/regForm";
 	private static final String VN_EDIT_REG_FORM = "events/editRegForm";
+	private static final String VN_NEW_REG_FORM = "/new";
 	private static final String VN_REG_OK = "redirect:events/reg_ok.html";
 	private static final Logger log = LoggerFactory
 			.getLogger(RegistrationController.class);
@@ -113,12 +114,10 @@ public class RegistrationController {
         map.putAll(loadRadioButtons());  
         model.addAttribute("model", map ); 
 		log.debug("My username is: " + registration.getUsername());
+
+	
+		return (registration != null ? VN_EDIT_REG_FORM : VN_NEW_REG_FORM);
 		
-		
-		//if(!registration.equals(null)){
-			return  VN_EDIT_REG_FORM;
-		//}
-		//return  "/new";
 		
 	}
 
