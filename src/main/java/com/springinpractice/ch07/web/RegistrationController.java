@@ -137,9 +137,9 @@ public class RegistrationController {
 		registrationService.updateRegistration(toEditRegistration(form), result);
 		
 		
-        log.debug("finished Put Form: - looking to go to ok");
+        log.debug("finished Put Form: - model: "  +  model.containsAttribute("model"));
 		
-		return (result.hasErrors() ? VN_EDIT_REG_FORM : "redirect:/events/reg_ok.html");
+		return (result.hasErrors() ? VN_EDIT_REG_FORM : "redirect:/home.html");
 	}
 	
 	
