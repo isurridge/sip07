@@ -135,6 +135,10 @@ public class RegistrationController {
 	        log.debug("Attributes Put Form: " + form.toString());
 			
 		registrationService.updateRegistration(toEditRegistration(form), result);
+		
+		
+        log.debug("finished Put Form: - looking to go to ok");
+		
 		return (result.hasErrors() ? VN_EDIT_REG_FORM : "redirect:/events/reg_ok.html");
 	}
 	

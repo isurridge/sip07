@@ -27,7 +27,7 @@
 				
 				
 				<security:authorize access="isAuthenticated()">
-					<c:url var="myRegistrationUrl" value="events/new.html" />
+					<c:url var="myRegistrationUrl" value="${registrationsPath}/${myAccount.username}.html" />
 					<li><a href="${myRegistrationUrl}">My Registration</a></li>
 				</security:authorize>
 				
