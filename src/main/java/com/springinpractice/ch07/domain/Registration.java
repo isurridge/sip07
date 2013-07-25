@@ -311,7 +311,7 @@ public class Registration {
 	
 	
 
-	@DateTimeFormat(pattern="#{messages['date_format']}")
+	//@DateTimeFormat(pattern="#{messages['date_format']}")
 	@Column(name = "airport_arrive")
 	public String getAirportArrive() {
 		return airportArrive;

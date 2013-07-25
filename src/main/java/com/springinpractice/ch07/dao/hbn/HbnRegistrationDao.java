@@ -29,20 +29,29 @@ public class HbnRegistrationDao extends AbstractHbnDao<Registration> implements
 			.getLogger(HbnRegistrationDao.class);
 	
 	
-	private static final String UPDATE_HOTELARRIVE_SQL =
-			"update registration set hotel_Arrive = ? where username = ?";
+	//private static final String UPDATE_HOTELARRIVE_SQL =
+	//		"update registration set hotel_Arrive = ? where username = ?";
 		
 	//@Inject private JdbcTemplate jdbcTemplate;
 	
+	
+	
+	
+	
+	/*
+	
+	public void update(Registration registration) {
+		LOG.debug("Updating Registration");
+		update(registration);
+	}
 
-	public void create(Registration registration, String password) {
+	public void create(Registration registration) {
 		LOG.debug("Creating Registration");
 		create(registration);
-		
-	//	LOG.debug("Updating hotel_Arrive");
-	//	jdbcTemplate.update(UPDATE_HOTELARRIVE_SQL, "Wednesday, 17 July, 2013", registration.getUsername());
 
 	}
+	*/
+
 
 	public Registration findByUsername(String username) {
 		Query q = getSession().getNamedQuery("findRegistrationByUsername");

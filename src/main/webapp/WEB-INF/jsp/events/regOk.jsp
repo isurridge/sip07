@@ -15,6 +15,6 @@
 	<body>
 		<h1><c:out value="${pageTitle}" /></h1>
 		<p><spring:message code="registrationOk.message.thanks" /></p>
-		<p><a href="${newRegistrationUrl}"><spring:message code="registrationOk.label.registerAnother" /></a></p>
+		
 	</body>
 </html>

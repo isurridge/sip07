@@ -32,7 +32,7 @@ Code: https://github.com/springinpractice
 	<mvc:view-controller path="/" view-name="redirect:/home.html" />
 	<mvc:view-controller path="/home.html" view-name="extras/home" />
 	<mvc:view-controller path="/admin.html" />
-	<mvc:view-controller path="/events/reg_ok.html" view-name="events/regOk" />	
+	<!--  <mvc:view-controller path="/events/reg_ok.html" view-name="events/regOk" />	-->
 	
 	<context:component-scan base-package="com.springinpractice.ch07.web" />
 	

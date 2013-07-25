@@ -107,22 +107,21 @@ public class RegistrationController {
 	@RequestMapping(value = "/{username}", method = RequestMethod.GET)
 	public String getRegistration(@PathVariable("username") String username, Model model) {
 
-      
-  
 		Registration registration = registrationService.getRegistrationByUsername(username);
+		model.addAttribute(registration);
+		Map<String, List<String>> map = new HashMap<String, List<String>>();
+        map.putAll(loadRadioButtons());  
+        model.addAttribute("model", map ); 
+		log.debug("My username is: " + registration.getUsername());
 		
-		if(!registration.equals(null)){
-			model.addAttribute(registration);
-			Map<String, List<String>> map = new HashMap<String, List<String>>();
-	        map.putAll(loadRadioButtons());  
-	        model.addAttribute("model", map ); 
-			log.debug("My username is: " + registration.getUsername());
+		
+		//if(!registration.equals(null)){
 			return  VN_EDIT_REG_FORM;
-		}
-		return  "/new";
+		//}
+		//return  "/new";
 		
 	}
-	
+
 	
 	
 	@RequestMapping(value = "/{username}", method = RequestMethod.PUT)
@@ -136,7 +135,7 @@ public class RegistrationController {
 	        log.debug("Attributes Put Form: " + form.toString());
 			
 		registrationService.updateRegistration(toEditRegistration(form), result);
-		return (result.hasErrors() ? VN_EDIT_REG_FORM : VN_REG_OK);
+		return (result.hasErrors() ? VN_EDIT_REG_FORM : "redirect:/events/reg_ok.html");
 	}
 	
 	

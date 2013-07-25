@@ -46,12 +46,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 		return reg;
 	}
 
-	@Override
-	@Transactional(readOnly = false)
-	public Registration getRegistration(long id) {
-		Registration reg = registrationDao.get(id);
-		return reg;
-	}
+
 
 	@Override
 	@Transactional(readOnly = false)
@@ -75,6 +70,10 @@ public class RegistrationServiceImpl implements RegistrationService {
 		return interestsMap;
 	}
 
+	
+	
+	
+	
 	@Override
 	@Transactional(readOnly = false)
 	public boolean addRegistration(Registration registration, Errors errors) {
@@ -100,6 +99,11 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 		return valid;
 	}
+	
+	
+	
+	
+	
 
 	@Override
 	@Transactional(readOnly = false)

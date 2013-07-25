@@ -40,6 +40,9 @@ Code: https://github.com/springinpractice
 		<!-- Get home page -->
 		<!-- This requires filtering for the controller test and taglib -->
 		<intercept-url pattern="/home.html" method="GET" access="permitAll" />
+		<intercept-url pattern="events/regOK.html" method="GET" access="permitAll" />
+		
+		
 		
 		<!-- Admin console -->
 		<intercept-url pattern="/admin.html" method="GET" access="hasRole('ROLE_ADMIN')" />
@@ -75,9 +78,18 @@ Code: https://github.com/springinpractice
 		
 		<intercept-url pattern="/accounts/*" method="GET" access="isAuthenticated()" />
 		
+		
+		
+		
 		<!-- Deny all policy by default, using expressions. This is part of our paranoia. This comes last since match
 		     policy is first-match. -->
-		<intercept-url pattern="/**" access="denyAll" />
+	    <intercept-url pattern="/**" access="denyAll" />
+	    
+	    
+	    
+	    
+	    
+	    
 	</http>
 	
 	<global-method-security pre-post-annotations="enabled">
