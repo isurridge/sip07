@@ -47,7 +47,10 @@ Code: https://github.com/springinpractice
 		<!-- Admin console -->
 		<intercept-url pattern="/admin.html" method="GET" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/admin/admin.html" method="GET" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="**/getJsonTree.json" method="GET" access="hasRole('ROLE_ADMIN')" />
 		
+		
+				
 		<!-- Get individual forum -->
 		<!-- /forums doesn't work. It has to be /forums.html. -->
 		<intercept-url pattern="/forums.html" method="GET" access="isAuthenticated()" />
