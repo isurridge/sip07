@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<decorators>
-	<decorator name="skin" page="/WEB-INF/jsp/skin/pageTemplate.jsp">
-		<pattern>/*</pattern>
-	</decorator>
-		<decorator name="skinAdmin" page="/WEB-INF/jsp/skin/pageTemplateAdmin.jsp">
-		<pattern>/admin/*</pattern>
-	</decorator>
-</decorators>
