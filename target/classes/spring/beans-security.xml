@@ -43,6 +43,8 @@ Code: https://github.com/springinpractice
 		<intercept-url pattern="/events/reg_ok.html" method="GET" access="permitAll" />
 		
 		
+		<intercept-url pattern="/gizmos/**" method="GET" access="permitAll" />		
+		
 		
 		<!-- Admin console -->
 		<intercept-url pattern="/admin.html" method="GET" access="hasRole('ROLE_ADMIN')" />
